@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <title>GuessTheNumber Game</title>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="card">
+        <img class="reload" src="./src/reload_black.png" />
+        <img class="mod" src="./src/white.png" />
+        <h1 id="heading">Guess The Number!</h1>
+
+        <div class="scoreBoard">
+          <h3 class="score">SCORE : 20</h3>
+          <h3 class="highscore">HIGHSCORE : 0</h3>
+        </div>
+
+        <div class="center">
+          <div class="line">
+            <div class="box">
+              <h1 class="output">?</h1>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="status">Start Gussing...</h2>
+
+        <div class="form">
+          <input class="dec" type="submit" value="-" />
+          <input
+            class="input"
+            type="number"
+            inputmode="numeric"
+            placeholder="0"
+            value="1"
+            autofocus
+            required
+          />
+          <input class="inc" type="submit" value="+" />
+        </div>
+        <input class="submit" type="submit" value="check" />
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
