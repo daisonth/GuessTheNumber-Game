@@ -15,15 +15,34 @@ const textHighScore = document.querySelector(`.highscore`);
 
 let highscore = 0;
 
-newGame();
-setBGColor();
-
 const setBGColor = function () {
   if (localStorage.mode) {
     document.body.style.backgroundColor = localStorage.mode;
-    btnChangeMode.src = `./src/${localStorage.mode}.png`;
+    btnChangeMode.src = `../img/${localStorage.mode}.png`;
   }
 };
+
+const checkOutOfBound = function (n) {
+  if (n > 20 || n < 1) input.value = `1`;
+};
+
+const newGame = function () {
+  random = Math.floor(Math.random() * 19) + 1;
+  score = 20;
+  textOutput.innerText = `?`;
+  textScore.innerText = `SCORE : ${score}`;
+  input.value = `1`;
+  textStatus.innerText = `Start Gussing...`;
+  document.documentElement.style.cssText = `--colo: red`;
+  console.log(random);
+  if (sessionStorage.highscore) {
+    highscore = parseInt(sessionStorage.highscore);
+    textHighScore.innerText = `HIGHSCORE : ${highscore}`;
+  }
+};
+
+newGame();
+setBGColor();
 
 btnReload.addEventListener(`click`, newGame);
 
@@ -74,22 +93,3 @@ btnCheck.addEventListener(`click`, function () {
     }
   }
 });
-
-const checkOutOfBound = function (n) {
-  if (n > 20 || n < 1) input.value = `1`;
-};
-
-const newGame = function () {
-  random = Math.floor(Math.random() * 19) + 1;
-  score = 20;
-  textOutput.innerText = `?`;
-  textScore.innerText = `SCORE : ${score}`;
-  input.value = `1`;
-  textStatus.innerText = `Start Gussing...`;
-  document.documentElement.style.cssText = `--colo: red`;
-  console.log(random);
-  if (sessionStorage.highscore) {
-    highscore = parseInt(sessionStorage.highscore);
-    textHighScore.innerText = `HIGHSCORE : ${highscore}`;
-  }
-};
